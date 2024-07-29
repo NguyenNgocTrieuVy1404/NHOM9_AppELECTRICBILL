@@ -27,7 +27,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
     public List<HoaDon> layTatCaHoaDon() throws SQLException, ClassNotFoundException {
         List<HoaDon> danhSachHoaDon = new ArrayList<>();
         Connection connection = null;
-        //connectionDB = ConnectionDB.getInstance();
         connection = connectionDB.getConnection();
         String sql = "SELECT * FROM HoaDon";
         Statement statement = connection.createStatement();
@@ -49,8 +48,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
                     donGia, dinhMuc, thanhTien);
             danhSachHoaDon.add(hoaDon);
         }
-
-        //connection.close();
         return danhSachHoaDon;
     }
 
@@ -86,10 +83,7 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
             // Hiển thị thông báo lỗi nếu có ngoại lệ SQL
             JOptionPane.showMessageDialog(null, "Lỗi khi cập nhật hóa đơn: " + e.getMessage(), "Lỗi",
                     JOptionPane.ERROR_MESSAGE);
-        } finally {
-            //connection.close();
         }
-
     }
 
     @Override
@@ -120,8 +114,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
             // Hiển thị thông báo lỗi nếu có ngoại lệ SQL
             JOptionPane.showMessageDialog(null, "Lỗi khi thêm hóa đơn: " + e.getMessage(), "Lỗi",
                     JOptionPane.ERROR_MESSAGE);
-        } finally {
-        //     //connection.close();
         }
     }
 
@@ -160,7 +152,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
             JOptionPane.showMessageDialog(null, "Không tìm thấy khách hàng", "Thông Báo",
                     JOptionPane.INFORMATION_MESSAGE);
         }
-        // connection.close();
         return danhSachHoaDon;
     }
 
@@ -177,7 +168,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
             JOptionPane.showMessageDialog(null, "Hóa đơn đã được xóa thành công!", "Thông Báo",
                     JOptionPane.INFORMATION_MESSAGE);
         }
-        // connection.close();
     }
 
     // Hàm kết nối
@@ -209,7 +199,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
             tongSoLuongMap.put(doiTuongKhachHang, tongSoLuong);
             
         }
-        // connection.close();
         return tongSoLuongMap;
     }
 
@@ -227,7 +216,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
         if (rs.next()) {
             trungBinhThanhTien = rs.getDouble("TrungBinhThanhTien");
         }
-        // connection.close();
         return trungBinhThanhTien;
     }
 
@@ -260,7 +248,6 @@ public class HoaDonPersistence_Impl implements HoaDonPersistence {
             listHoaDon.add(hoaDon);
         
         }
-        //connection.close();
         return listHoaDon;
     }
 }

@@ -31,7 +31,6 @@ public class HoaDonModel_Impl extends Observable implements HoaDonModel{
         hoaDonPersistence.suaHoaDon(hoaDon);
         changeState();
     }
-    // các thành phần ở dưới không thay đổi trạng thái nên không cần thông báo gì hết
     @Override
     public List<HoaDon> timKiemHoaDon(String hoTen) throws ClassNotFoundException, SQLException {
         return hoaDonPersistence.timKiemHoaDon(hoTen);

@@ -490,7 +490,7 @@ public class View extends JFrame implements Observer {
             JOptionPane.showMessageDialog(null, " Tổng tiền là: " + result, "Thông Báo",
                     JOptionPane.INFORMATION_MESSAGE);
             txtThanhtien.setText("" + result);
-        } else { 
+        } else {
             ThanhTien thanhTien1 = new ThanhTienNuocNgoai();
             Command tinhtien = new ThanhTienNN(hoaDon, thanhTien1);
             commandProcessorRemote.execute(tinhtien);
@@ -576,7 +576,7 @@ public class View extends JFrame implements Observer {
         HoaDonPersistence hoaDonPersistence = new HoaDonPersistence_Impl(connectionDB);
         HoaDonModel hoaDonModel = new HoaDonModel_Impl(hoaDonPersistence);
         View view = new View();
-        view.setHoaDonModel(hoaDonModel); 
+        view.setHoaDonModel(hoaDonModel);
         view.setCommandProcessorRemote(commandProcessorRemote);
         
     }
